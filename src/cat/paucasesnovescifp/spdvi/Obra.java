@@ -12,7 +12,7 @@ package cat.paucasesnovescifp.spdvi;
 class Obra {
     private String registre;
     private String titol;
-    private int any;
+    private String any;
     private String format;
     private String autor;
     private String imatge;
@@ -33,11 +33,11 @@ class Obra {
         this.titol = titol;
     }
 
-    public int getAny() {
+    public String getAny() {
         return any;
     }
 
-    public void setAny(int any) {
+    public void setAny(String any) {
         this.any = any;
     }
 
@@ -65,7 +65,7 @@ class Obra {
         this.imatge = imatge;
     }
     
-    public Obra(String registre, String titol, int any, String format, String autor, String imatge)
+    public Obra(String registre, String titol, String any, String format, String autor, String imatge)
     {
         this.registre = registre;
         this.titol = titol;

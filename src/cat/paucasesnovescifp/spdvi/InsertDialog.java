@@ -18,10 +18,11 @@ public class InsertDialog extends javax.swing.JDialog {
     JFileChooser fileChooser = new JFileChooser();
     public String registre;
     public String titol;
-    public int any;
+    public String any;
     public String format;
     public String autor;
     public String imatge;
+    public boolean confirm = false;
     /**
      * Creates new form InsertDialog
      */
@@ -145,10 +146,11 @@ public class InsertDialog extends javax.swing.JDialog {
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         this.registre = txtRegistre.getText();
         this.titol = txtTitol.getText();
-        this.any = Integer.parseInt(txtAny.getText());
+        this.any = txtAny.getText();
         this.autor = txtAutor.getText();
         this.format = txtFormat.getText();
         this.imatge = fileChooser.getSelectedFile().getName();
+        this.confirm = true;
         
         this.setVisible(false);
     }//GEN-LAST:event_btnInsertActionPerformed

@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 public class UpdateDialog2 extends javax.swing.JDialog {
     JFileChooser fileChooser = new JFileChooser();
     public String titol;
-    public int any;
+    public String any;
     public String format;
     public String autor;
     public String imatge;
@@ -152,7 +152,7 @@ public class UpdateDialog2 extends javax.swing.JDialog {
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         this.titol = txtTitol.getText();
         this.autor = txtAutor.getText();
-        this.any = Integer.parseInt(txtAny.getText());
+        this.any = txtAny.getText();
         this.format = txtFormat.getText();
         this.imatge = lblImatge.getText();
         confirma = true;

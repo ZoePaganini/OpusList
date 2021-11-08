@@ -190,12 +190,14 @@ public class OpusList extends javax.swing.JFrame {
         File outputImage = new File(outputImageAbsolutePath);   
         ImageIO.write(bufferedimage, "jpg", outputImage);
         
-        Obra obra = new Obra(insertDialog.registre, insertDialog.titol, insertDialog.any, insertDialog.format, insertDialog.autor, insertDialog.imatge);
-        
-        obras.add(obra);
-        UpdateListView();
-        
-        guardarJSON();
+        if (insertDialog.confirm == true)
+        {
+            Obra obra = new Obra(insertDialog.registre, insertDialog.titol, insertDialog.any, insertDialog.format, insertDialog.autor, insertDialog.imatge);
+            obras.add(obra);
+            guardarJSON();
+            UpdateListView();
+        }
+       
         } catch (IOException ex) {
            EncuestaDialog encuesta = new EncuestaDialog(this, true);
            encuesta.getLblMessage().setText(ex.getMessage());
@@ -265,7 +267,7 @@ public class OpusList extends javax.swing.JFrame {
                         updateData.getTxtAutor().setText(o.getAutor());
                         updateData.getTxtTitol().setText(o.getTitol());
                         updateData.getTxtFormat().setText(o.getFormat());
-                        updateData.getTxtAny().setText(Integer.toString(o.getAny()));
+                        updateData.getTxtAny().setText(o.getAny());
                         BufferedImage bufferedImage = ImageIO.read(new File(System.getProperty("user.home") + pathImage + o.getImatge()));
                         ImageIcon icon = resizeImageIcon(bufferedImage, updateData.getLblImatge().getWidth(), updateData.getLblImatge().getHeight());
                         updateData.getLblImatge().setIcon(icon);
@@ -316,7 +318,7 @@ public class OpusList extends javax.swing.JFrame {
                         updateData.getTxtAutor().setText(o.getAutor());
                         updateData.getTxtTitol().setText(o.getTitol());
                         updateData.getTxtFormat().setText(o.getFormat());
-                        updateData.getTxtAny().setText(Integer.toString(o.getAny()));
+                        updateData.getTxtAny().setText(o.getAny());
                         BufferedImage bufferedImage = null;
                         bufferedImage = ImageIO.read(new File(System.getProperty("user.home") + pathImage + o.getImatge()));
                         ImageIcon icon = resizeImageIcon(bufferedImage, updateData.getLblImatge().getWidth(), updateData.getLblImatge().getHeight());
@@ -363,8 +365,9 @@ public class OpusList extends javax.swing.JFrame {
         }
         lstObras.setModel(obraListModel);
         
-        UpdateListView();
+        
         guardarJSON();
+        UpdateListView();
         } catch (IOException e) {
             e.getStackTrace();
         }
